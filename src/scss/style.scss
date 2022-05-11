@@ -1,0 +1,114 @@
+@import "./var";
+
+@mixin shadow {
+  -webkit-box-shadow: 10px 10px 15px -4px $grisf;
+  -moz-box-shadow: 10px 10px 15px -4px $grisf;
+  box-shadow: 10px 10px 15px -4px $grisf;
+}
+
+body {
+  font: 100% "Space Mono", monospace;
+  color: $grisf;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  overflow-x: hidden;
+}
+
+main {
+  padding: 0 $pad;
+  article {
+    display: flex;
+    flex-wrap: wrap;
+    section {
+      flex-grow: 1;
+      flex-basis: 45%;
+      border: 1px $grisclair solid;
+      @include shadow;
+      padding: $pad;
+      margin: 16px;
+      clear: both;
+      overflow: auto;
+      box-sizing: border-box;
+    }
+    #selling-points {
+      flex-grow: 2;
+      flex-basis: 100%;
+    }
+    code {
+      background: $noir;
+      border: 1px solid $grisf;
+      color: $grisclair;
+      page-break-inside: avoid;
+      font-family: monospace;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 1.6em;
+      max-width: 100%;
+      overflow: auto;
+      padding: 1em 1.5em;
+      display: block;
+      word-wrap: break-word;
+    }
+    code.before {
+      float: left;
+      width: 40%;
+    }
+    code.after {
+      float: right;
+      width: 40%;
+    }
+  }
+}
+
+h1,
+h2,
+h3 {
+  color: $rose;
+}
+
+h1 {
+  text-align: center;
+}
+
+h3 {
+  text-align: center;
+  font-size: 1.5em;
+  padding: $pad * 2;
+  margin-bottom: 0px;
+}
+
+.messages {
+  padding: $pad;
+}
+
+.message {
+  border: 1px solid $grisclair;
+  padding: $pad;
+  color: $blanc;
+}
+
+.success {
+  @extend .message;
+  background-color: $vert;
+}
+
+.error {
+  @extend .message;
+  background-color: $rouge;
+  &:hover {
+    background-color: $vert;
+  }
+}
+
+.warning {
+  @extend .message;
+  background-color: $orange;
+}
+
+@for $i from 1 through 6 {
+  li:nth-child(3n + #{$i}) {
+    background-color: lighten($base-color, $i * 5%);
+    color: white;
+  }
+}
