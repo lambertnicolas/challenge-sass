@@ -1,9 +1,9 @@
 @import "./var";
 
-@mixin shadow {
-  -webkit-box-shadow: 10px 10px 15px -4px $grisf;
-  -moz-box-shadow: 10px 10px 15px -4px $grisf;
-  box-shadow: 10px 10px 15px -4px $grisf;
+@mixin shadow($colors) {
+  -webkit-box-shadow: 10px 10px 15px -4px $colors;
+  -moz-box-shadow: 10px 10px 15px -4px $colors;
+  box-shadow: 10px 10px 15px -4px $colors;
 }
 
 body {
@@ -24,7 +24,7 @@ main {
       flex-grow: 1;
       flex-basis: 45%;
       border: 1px $grisclair solid;
-      @include shadow;
+      @include shadow($grisf);
       padding: $pad;
       margin: 16px;
       clear: both;
